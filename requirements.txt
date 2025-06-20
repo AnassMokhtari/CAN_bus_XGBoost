@@ -1,1 +1,16 @@
+# Core data manipulation and numerical computation libraries
+pandas==2.0.3
+numpy==1.24.4
 
+# Machine learning library for XGBoost model
+xgboost==2.0.3
+
+# Machine learning utilities for data splitting and evaluation
+scikit-learn==1.3.2
+
+# Visualization libraries for plotting feature importance and confusion matrices
+matplotlib==3.7.5
+seaborn==0.13.2
+
+# Progress bar for processing large datasets
+tqdm==4.66.1
