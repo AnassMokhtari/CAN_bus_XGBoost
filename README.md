@@ -142,7 +142,7 @@ candump -l slcan0 > data/full_data_capture.log
 ### 2. Data Preprocessing
 Process raw logs to extract features and inject attacks:
 ```bash
-python scripts/data_preprocessing.py --input data/full_data_capture.log --output data/generated.csv
+python notebooks/data_preprocessing.py --input dataSet/full_data_capture.log --output dataSet/processed/generated.csv
 ```
 - **Input**: Raw CAN log file.
 - **Output**: Processed dataset with features and labels.
@@ -150,7 +150,7 @@ python scripts/data_preprocessing.py --input data/full_data_capture.log --output
 ### 3. Model Training
 Train the XGBoost model:
 ```bash
-python scripts/model_training.py --input data/generated.csv --output models/xgboost_model.json
+python notebooks/model_training.py --input dataSet/processed/generated.csv --output models/xgboost_model.json
 ```
 - **Input**: Processed dataset (`generated.csv`).
 - **Output**: Trained model saved as `xgboost_model.json`.
@@ -158,7 +158,7 @@ python scripts/model_training.py --input data/generated.csv --output models/xgbo
 ### 4. Model Testing
 Predict labels for new CAN logs:
 ```bash
-python scripts/predict_unlabeled.py --input data/dosattack.log --model models/xgboost_model.json --output data/unlabeled_predictions.csv
+python notebooks/model_training.py --input dataSet/raw/dos/dosattack.log --model models/xgboost_model.json --output dataSet/unlabeled_predictions.csv
 ```
 - **Input**: Unlabeled CAN log and trained model.
 - **Output**: Predictions saved to `unlabeled_predictions.csv`.
@@ -166,7 +166,7 @@ python scripts/predict_unlabeled.py --input data/dosattack.log --model models/xg
 ### 5. Visualization
 Generate plots (e.g., feature importance, confusion matrix) during training:
 ```bash
-python scripts/model_training.py --input data/generated.csv --output models/xgboost_model.json --plot
+python scripts/model_training.py --input dataSet/processed/generated.csv --output models/xgboost_model.json --plot
 ```
 
 ## Results
